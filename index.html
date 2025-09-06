@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PixelCheck - Detector de Imágenes IA</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <span class="pixel-icon">🔍</span>
+                <h1>PixelCheck</h1>
+            </div>
+            <p class="subtitle">Detector de Imágenes Generadas por IA</p>
+        </header>
+
+        <main class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <div class="upload-icon">📁</div>
+                        <h3>Arrastra una imagen aquí</h3>
+                        <p>o haz clic para seleccionar</p>
+                        <input type="file" id="imageInput" accept="image/*" hidden>
+                    </div>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" alt="Imagen a analizar">
+                </div>
+                
+                <div class="analysis-controls">
+                    <button class="analyze-btn" id="analyzeBtn">
+                        <span class="btn-icon">🔬</span>
+                        Analizar Imagen
+                    </button>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="result-card main-result">
+                    <div class="result-header">
+                        <h3>Resultado del Análisis</h3>
+                        <div class="confidence-badge" id="confidenceBadge">
+                            <span id="confidenceText">Calculando...</span>
+                        </div>
+                    </div>
+                    <div class="verdict" id="verdict">
+                        <div class="verdict-icon" id="verdictIcon">⏳</div>
+                        <div class="verdict-text" id="verdictText">Analizando...</div>
+                    </div>
+                </div>
+
+                <div class="analysis-details">
+                    <div class="detail-card">
+                        <h4>🎨 Análisis de Patrones de Píxeles</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="pixelProgress"></div>
+                        </div>
+                        <p id="pixelAnalysis">Evaluando uniformidad y patrones artificiales...</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>📊 Análisis de Frecuencias (FFT)</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="fftProgress"></div>
+                        </div>
+                        <p id="fftAnalysis">Analizando espectro de frecuencias...</p>
+                        <canvas id="fftCanvas" width="300" height="100"></canvas>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>🔍 Análisis de Ruido Fotográfico</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="noiseProgress"></div>
+                        </div>
+                        <p id="noiseAnalysis">Detectando patrones de ruido natural vs sintético...</p>
+                    </div>
+
+                    <div class="detail-card">
+                        <h4>📋 Metadatos de Imagen</h4>
+                        <div class="metadata-grid" id="metadataGrid">
+                            <div class="metadata-item">
+                                <span class="label">Formato:</span>
+                                <span class="value" id="formatValue">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Dimensiones:</span>
+                                <span class="value" id="dimensionsValue">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Tamaño:</span>
+                                <span class="value" id="sizeValue">-</span>
+                            </div>
+                            <div class="metadata-item">
+                                <span class="label">Compresión:</span>
+                                <span class="value" id="compressionValue">-</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="technical-details">
+                    <h4>🧠 Detalles Técnicos del ML</h4>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <span class="tech-label">Score Pixel Uniformity:</span>
+                            <span class="tech-value" id="pixelScore">-</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-label">FFT Anomaly Score:</span>
+                            <span class="tech-value" id="fftScore">-</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-label">Noise Pattern Score:</span>
+                            <span class="tech-value" id="noiseScore">-</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-label">Edge Consistency:</span>
+                            <span class="tech-value" id="edgeScore">-</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+                <div class="loading-content">
+                    <div class="spinner"></div>
+                    <h3>Analizando con IA...</h3>
+                    <p id="loadingStatus">Preparando análisis...</p>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>PixelCheck utiliza algoritmos de ML avanzados para detectar imágenes generadas por IA</p>
+            <p class="disclaimer">Resultado indicativo - No garantiza 100% de precisión</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
