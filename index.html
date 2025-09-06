@@ -13,7 +13,7 @@
                 <span class="pixel-icon">🔍</span>
                 <h1>PixelCheck</h1>
             </div>
-            <p class="subtitle">Detector de Imágenes Generadas por IA</p>
+            <p class="subtitle">Detector de Imágenes Generadas por IA con ML Avanzado</p>
         </header>
 
         <main class="main-content">
@@ -36,7 +36,7 @@
                 <div class="analysis-controls">
                     <button class="analyze-btn" id="analyzeBtn">
                         <span class="btn-icon">🔬</span>
-                        Analizar Imagen
+                        Analizar con IA
                     </button>
                 </div>
             </div>
@@ -44,7 +44,7 @@
             <div class="results-section" id="resultsSection" style="display: none;">
                 <div class="result-card main-result">
                     <div class="result-header">
-                        <h3>Resultado del Análisis</h3>
+                        <h3>Resultado del Análisis ML</h3>
                         <div class="confidence-badge" id="confidenceBadge">
                             <span id="confidenceText">Calculando...</span>
                         </div>
@@ -57,28 +57,27 @@
 
                 <div class="analysis-details">
                     <div class="detail-card">
-                        <h4>🎨 Análisis de Patrones de Píxeles</h4>
+                        <h4>🎨 Análisis de Color</h4>
                         <div class="progress-bar">
-                            <div class="progress-fill" id="pixelProgress"></div>
+                            <div class="progress-fill" id="colorProgress"></div>
                         </div>
-                        <p id="pixelAnalysis">Evaluando uniformidad y patrones artificiales...</p>
+                        <p id="colorAnalysis">Evaluando diversidad cromática y patrones de color...</p>
                     </div>
 
                     <div class="detail-card">
-                        <h4>📊 Análisis de Frecuencias (FFT)</h4>
+                        <h4>🔍 Análisis de Transparencia</h4>
                         <div class="progress-bar">
-                            <div class="progress-fill" id="fftProgress"></div>
+                            <div class="progress-fill" id="transparencyProgress"></div>
                         </div>
-                        <p id="fftAnalysis">Analizando espectro de frecuencias...</p>
-                        <canvas id="fftCanvas" width="300" height="100"></canvas>
+                        <p id="transparencyAnalysis">Detectando píxeles transparentes...</p>
                     </div>
 
                     <div class="detail-card">
-                        <h4>🔍 Análisis de Ruido Fotográfico</h4>
+                        <h4>📊 Análisis de Ruido</h4>
                         <div class="progress-bar">
                             <div class="progress-fill" id="noiseProgress"></div>
                         </div>
-                        <p id="noiseAnalysis">Detectando patrones de ruido natural vs sintético...</p>
+                        <p id="noiseAnalysis">Analizando patrones de ruido natural vs sintético...</p>
                     </div>
 
                     <div class="detail-card">
@@ -105,23 +104,48 @@
                 </div>
 
                 <div class="technical-details">
-                    <h4>🧠 Detalles Técnicos del ML</h4>
+                    <h4>🧠 Clasificación Machine Learning</h4>
+                    
+                    <div class="ml-probabilities">
+                        <div class="prob-item">
+                            <span class="prob-label">Imagen Real</span>
+                            <div class="prob-value" id="realProb">-</div>
+                        </div>
+                        <div class="prob-item">
+                            <span class="prob-label">Generada por IA</span>
+                            <div class="prob-value" id="aiProb">-</div>
+                        </div>
+                        <div class="prob-item">
+                            <span class="prob-label">Diseño Gráfico</span>
+                            <div class="prob-value" id="graphicProb">-</div>
+                        </div>
+                    </div>
+
+                    <h4 style="margin-top: 30px;">📈 Características Extraídas</h4>
                     <div class="tech-grid">
                         <div class="tech-item">
-                            <span class="tech-label">Score Pixel Uniformity:</span>
-                            <span class="tech-value" id="pixelScore">-</span>
+                            <span class="tech-label">Diversidad Color:</span>
+                            <span class="tech-value" id="colorFeature">-</span>
                         </div>
                         <div class="tech-item">
-                            <span class="tech-label">FFT Anomaly Score:</span>
-                            <span class="tech-value" id="fftScore">-</span>
+                            <span class="tech-label">Transparencia:</span>
+                            <span class="tech-value" id="transparencyFeature">-</span>
                         </div>
                         <div class="tech-item">
-                            <span class="tech-label">Noise Pattern Score:</span>
-                            <span class="tech-value" id="noiseScore">-</span>
+                            <span class="tech-label">Nivel Ruido:</span>
+                            <span class="tech-value" id="noiseFeature">-</span>
                         </div>
                         <div class="tech-item">
-                            <span class="tech-label">Edge Consistency:</span>
-                            <span class="tech-value" id="edgeScore">-</span>
+                            <span class="tech-label">Nitidez Bordes:</span>
+                            <span class="tech-value" id="sharpnessFeature">-</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-label">Patrones:</span>
+                            <span class="tech-value" id="patternFeature">-</span>
+                        </div>
+                        <div class="tech-item">
+                            <span class="tech-label">Compresión:</span>
+                            <span class="tech-value" id="compressionFeature">-</span>
                         </div>
                     </div>
                 </div>
@@ -138,10 +162,10 @@
 
         <footer class="footer">
             <p>PixelCheck utiliza algoritmos de ML avanzados para detectar imágenes generadas por IA</p>
-            <p class="disclaimer">Resultado indicativo - No garantiza 100% de precisión</p>
+            <p class="disclaimer">Incluye detección de diseños gráficos - Resultado indicativo</p>
         </footer>
     </div>
 
-    <script src="script.js"></script>
-</body>
-</html>
+  </body>
+  <script src="script.js"></script>
+  </html>
